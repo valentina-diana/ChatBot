@@ -1,0 +1,2826 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+  <!-- insert your AIML categories here -->
+  
+	 <category>
+        <pattern>BUNA *</pattern>
+        <template>Buna! Pe mine ma cheama <bot name="nume" />,pe tine?</template>
+    </category>
+    
+    <category>
+        <pattern>*</pattern>
+        <template>Nu inteleg ce doresti sa imi spui. Poate data viitoare voi intelege.</template>
+	 </category>
+
+    <category>
+        <pattern> ^<set>salutari</set> ^</pattern>
+        <template><srai>BUNA</srai></template>
+    </category>
+    
+    <category>
+      <pattern>BUNA</pattern>
+      <template>
+	  Buna! Pe mine ma cheama <bot name="nume" />,pe tine?</template>
+    </category>
+    
+    <category>
+	    <pattern>Ma numesc * </pattern>
+	    <template>
+		Incantat de cunostinta,<set name="numeutilizator"><star /></set>. Ai dori sa inveti despre partile de vorbire flexibile ale limbii romane?
+		<button>
+                <text>Da</text>
+                <postback>Da</postback>
+            </button>
+            
+            <button>
+                <text>Nu</text>
+                <postback>Nu</postback>
+            </button>
+		</template>
+    </category>
+
+     <category>
+	    <pattern>Ma cheama * </pattern>
+	    <template>
+		Incantat de cunostinta,<set name="numeutilizator"><star /></set>. Ai dori sa inveti despre partile de vorbire flexibile ale limbii romane?
+		<button>
+                <text>Da</text>
+                <postback>Da</postback>
+            </button>
+            
+            <button>
+                <text>Nu</text>
+                <postback>Nu</postback>
+            </button>
+		</template>
+    </category>
+    
+    <category>
+	    <pattern>Pe mine ma cheama * </pattern>
+	    <template>
+		Incantat de cunostinta,<set name="numeutilizator"><star /></set>. Ai dori sa inveti despre partile de vorbire flexibile ale limbii romane?
+		<button>
+                <text>Da</text>
+                <postback>Da</postback>
+            </button>
+            
+            <button>
+                <text>Nu</text>
+                <postback>Nu</postback>
+            </button>
+		</template>
+    </category>
+    
+    <category>
+	    <pattern>Numele meu este * </pattern>
+	    <template>
+		Incantat de cunostinta,<set name="numeutilizator"><star /></set>. Ai dori sa inveti despre partile de vorbire flexibile ale limbii romane?
+		<button>
+                <text>Da</text>
+                <postback>Da</postback>
+            </button>
+            
+            <button>
+                <text>Nu</text>
+                <postback>Nu</postback>
+            </button>
+		</template>
+    </category>
+    
+    <category>
+	    <pattern>Sunt * </pattern>
+	    <template>
+		Incantat de cunostinta,<set name="numeutilizator"><star /></set>. Ai dori sa inveti despre partile de vorbire flexibile ale limbii romane?
+		<button>
+                <text>Da</text>
+                <postback>Da</postback>
+            </button>
+            
+            <button>
+                <text>Nu</text>
+                <postback>Nu</postback>
+            </button>
+		</template>
+    </category>
+    
+    <category>
+        <pattern> CEL DE AL DOILEA NUME AL MEU ESTE *</pattern>
+        <template>O sa imi amintesc ca <set name="aldoileanume"><star /></set> este cel de al doilea nume al tau. 
+        <learn>
+            <category>
+            <pattern><eval><star></star></eval> este cel de al doilea nume al meu?</pattern>
+            <template> Cel de al doilea nume al tau este <eval><star/></eval></template>
+            </category>
+        </learn>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>Cine sunt </pattern>
+        <template>
+            <think><set var="identificanumeutilizator"><get name="numeutilizator" /></set></think> 
+            <condition var="identificanumeutilizator">
+                <li value="unknown">Imi pare rau,dar nu te-ai prezentat inca.</li>
+                <li>Te numesti: <get var="identificanumeutilizator" />.</li>
+           </condition>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>Cum ma numesc </pattern>
+        <template>
+            <think><set var="identificanumeutilizator"><get name="numeutilizator" /></set></think> 
+            <condition var="identificanumeutilizator">
+                <li value="unknown">Imi pare rau,dar nu te-ai prezentat inca.</li>
+                <li>Te numesti: <get var="identificanumeutilizator" />.</li>
+           </condition>
+        </template>
+    </category>
+    
+     <category>
+        <pattern>Care este numele meu </pattern>
+        <template>
+            <think><set var="identificanumeutilizator"><get name="numeutilizator" /></set></think> 
+            <condition var="identificanumeutilizator">
+                <li value="unknown">Imi pare rau,dar nu te-ai prezentat inca.</li>
+                <li>Numele tau este: <get var="identificanumeutilizator" />.</li>
+           </condition>
+        </template>
+    </category>
+    
+        <category>
+        <pattern>Cum ma cheama </pattern>
+        <template>
+            <think><set var="identificanumeutilizator"><get name="numeutilizator" /></set></think> 
+            <condition var="identificanumeutilizator">
+                <li value="unknown">Imi pare rau,dar nu te-ai prezentat inca.</li>
+                <li>Te numesti: <get var="identificanumeutilizator" />.</li>
+           </condition>
+        </template>
+    </category>
+    
+    <category>
+        <pattern> ^ nu ^ </pattern>
+        <template>
+			Îmi pare rău ca nu te pot ajuta.O zi buna în continuare!</template>
+    </category>
+    
+    <category>
+        <pattern>^ da ^</pattern>
+        <template>Perfect! Ce ai dori sa stii despre partile de vorbire flexibile?
+        
+        <button>
+            <text>Definitia</text>
+            <postback>DefinitieParti</postback>
+        </button>
+            
+        <button>
+            <text>Tipuri de parti de vorbire flexibile</text>
+            <postback>Tipuripartivorbire</postback>
+        </button>
+            
+        </template>
+    </category>    
+        
+        <category>
+            <pattern>DefinitieParti</pattern>
+            <template>
+                Părțile de vorbire flexibile sunt acele parti de vorbire care îşi schimbă forma în raport cu genul, numărul, cazul, persoana, modul, timpul si diateza.
+            <button>
+            <text>Doresc sa invat altceva</text>
+            <postback>bine</postback>
+            </button>
+            
+            </template>
+        </category>
+        
+        <category>
+            <pattern>Tipuripartivorbire</pattern>
+            <template>Ce parte de vorbire flexibila ai dori sa studiezi?
+            <carousel>
+            <card> 
+            <image>https://educatiecudragoste.ro/wp-content/uploads/2018/04/lectura-bun-1024x576.png</image>
+            </card>
+            
+			<card>
+            <button>
+                <text>Substantiv</text>
+                <postback>Substantiv</postback>
+            </button>
+        
+            <button>
+                <text>Pronume</text>
+                <postback>Pronume</postback>
+            </button>
+        
+            <button>
+                <text>Verb</text>
+                <postback>Verb</postback>
+            </button>
+            </card>
+            </carousel>
+            </template>
+        </category>
+        
+    
+        <!-- SUBSTANTIVUL --> 
+        <category>
+            <pattern>Substantiv</pattern>
+            <template>Ce ai dori sa inveti despre substantiv?
+            <carousel>
+            <card>
+            <image>https://clasamea.eu/wp-content/uploads/2019/10/Substantivul.jpg</image>
+            </card>
+            
+			<card>
+            <button>
+                <text>Definitia substantivului</text>
+                <postback>DefinitieSubstantiv</postback>
+            </button>
+            
+            <button>
+                <text>Clasificarea substantivelor</text>
+                <postback>ClasificareaSubst</postback>
+            </button>
+            
+            <button>
+                <text>Genurile substantvivelor</text>
+                <postback>GenurileSubst</postback>
+            </button>
+            
+            <button>
+                <text>Numarul substantivelor</text>
+                <postback>NumarulSubst</postback>
+            </button>
+            
+             </card>
+            </carousel>
+            
+            <think>
+                <set name = "topic">substantiv</set>
+            </think>
+            <think>
+                <set name="categorie">substantiv</set>
+            </think>
+            
+            </template>
+        </category>
+
+        
+        <category>
+            <pattern>DefinitieSubstantiv</pattern>
+            <template>
+                Substantivul este partea de vorbire flexibilă ce denumește: ființe, obiecte, fenomene ale naturii, sentimente, stări sufletești, precum și unele noțiuni abstracte.
+            
+            <image>https://www.rei.plus/wp-content/uploads/2020/03/substantivul.png</image>
+            
+            <button>
+                <text>Doresc sa invat altceva</text>
+                <postback>bine</postback>
+            </button>
+            
+            </template>
+        </category>
+        
+        <category>
+            <pattern>ClasificareaSubst</pattern>
+            <template>Care din urmatoarele tipuri de substantive ai vrea sa le studiezi?
+            
+            <button>
+                <text>Substantivul propriu</text>
+                <postback>Substpropriu</postback>
+            </button>
+            
+            <button>
+                <text>Substantivul comun</text>
+                <postback>Substcomun</postback>
+            </button>
+        
+            <think>
+                <set name = "topic">clasificaresubst</set>
+            </think>
+            <think>
+                <set name="tip">substclasificare</set>
+            </think>
+            
+            </template>
+        </category>
+        
+        <!-- Substantiv propriu -->
+        <category>
+            <pattern>Substpropriu</pattern>
+            <template>Ce ai dori sa stii despre substantivele proprii?
+            
+            <button>
+                <text>Definitie</text>
+                <postback>DefintitieSubstProp</postback>
+            </button>
+                
+            <button>
+                <text>Exemple</text>
+                <postback>ExempleSubstProp</postback>
+                
+            </button>
+                
+            </template>
+        </category>
+        
+        <category>
+            <pattern>DefintitieSubstProp</pattern>
+            <template>
+                Substantivul propriu se utilizează pentru nume de persoane, localități și alte repere geografice, nume de instituții și alte asemenea denumiri, scrise întotdeauna cu majusculă.
+            <button>
+                <text>Doresc sa invat altceva</text>
+                <postback>bine</postback>
+            </button>
+            </template>
+            
+        </category>
+        
+        <category>
+            <pattern>ExempleSubstProp</pattern>
+            <template>
+                Exemplu: Andreea a plecat într-o călătorie lungă prin Europa.
+                <button>
+                    <text>Doresc mai multe exemple</text>
+                    <url>https://gramaticalimbiiromane.ro/exemple/exemple-substantiv/exemple-substantive-proprii/</url>
+
+                </button>
+            <button>
+                <text>Doresc sa invat altceva</text>
+                <postback>bine</postback>
+            </button>
+            </template>
+            
+        </category>
+        
+        <!-- Substantiv comun -->
+        <category>
+            <pattern>Substcomun</pattern>
+            <template>Ce ai dori sa stii despre substantivele comune?
+            
+            <button>
+                <text>Definitie</text>
+                <postback>DefintitieSubstComun</postback>
+            </button>
+                
+            <button>
+                <text>Clasificare</text>
+                <postback>ClasificareSubstComun</postback>
+            </button>
+                
+            </template>
+        </category>
+        
+        <category>
+            <pattern>DefintitieSubstComun</pattern>
+            <template>
+                Substantivul comun denumește obiecte de același fel și se scrie cu literă mică (cu excepția cazului în care se află la începutul unei propoziții).
+            <button>
+                <text>Doresc sa invat altceva</text>
+                <postback>bine</postback>
+            </button>
+            </template>
+            
+        </category>
+        
+    
+        <category>
+            <pattern>ClasificareSubstComun</pattern>
+            <template>Ce tip de substantiv comun vrei sa studiezi?
+                <button>
+                    <text>Substantiv comun simplu</text>
+                    <postback>SubstComSim</postback>
+                </button>
+                
+                <button>
+                    <text>Substantiv comun compus</text>
+                    <postback>SubstComComp</postback>
+                </button>
+                
+            </template>
+        </category>
+        
+        <!-- Substantiv comun simplu -->
+        <category>
+            <pattern>SubstComSim</pattern>
+            <template>Ce doresti sa stii despre substantivul comun simplu?
+                <button>
+                    <text>Defintitie</text>
+                    <postback>DefSubstComSim</postback>
+                </button>
+                
+                <button>
+                    <text>Exemple</text>
+                    <postback>ExempleSubComSim</postback>
+                </button>
+                
+            </template>
+        </category>
+            
+            <category>
+                <pattern>DefSubstComSim</pattern>
+                <template>
+                 Substantivele comune simple sunt construite dintr-un singur cuvânt.
+                    <button>
+                        <text>Doresc sa invat altceva</text>
+                        <postback>bine</postback>
+                    </button>
+                </template>
+            </category>
+            
+            <category>
+                <pattern>ExempleSubComSim</pattern>
+                <template>
+                 Exemplu: pisică, școală, carte
+                 
+                    <button>
+                        <text>Doresc mai multe exemple</text>
+                        <url>https://gramaticalimbiiromane.ro/exemple/exemple-substantiv/exemple-substantive-comune//</url>
+                    </button>
+                
+                    <button>
+                        <text>Doresc sa invat altceva</text>
+                        <postback>bine</postback>
+                    </button>
+                </template>
+            </category>
+        
+        <!-- Substantiv comun compus-->    
+        <category>
+            <pattern>SubstComComp</pattern>
+            <template>Ce doresti sa stii despre substantivul comun simplu?
+                <button>
+                    <text>Defintitie</text>
+                    <postback>DefSubstComComp</postback>
+                </button>
+                
+                <button>
+                    <text>Exemple</text>
+                    <postback>ExempleSubComComp</postback>
+                </button>
+                
+            </template>
+        </category>
+            
+            <category>
+                <pattern>DefSubstComComp</pattern>
+                <template>
+                 Substantivele comune compuse sunt construite din două sau mai multe cuvinte
+                    <button>
+                        <text>Doresc sa invat altceva</text>
+                        <postback>bine</postback>
+                    </button>
+                </template>
+            </category>
+            
+            <category>
+                <pattern>ExempleSubComComp</pattern>
+                <template>Exemplu: pisică-de-mare, Piatra Neamț, Câmpulung Muscel
+                
+                    <button>
+                        <text>Doresc mai multe exemple</text>
+                        <url>https://gramaticalimbiiromane.ro/exemple/exemple-substantiv/exemple-substantive-comune//</url>
+                    </button>
+                    
+                    <button>
+                        <text>Doresc sa invat altceva</text>
+                        <postback>bine</postback>
+                    </button>
+                </template>
+            </category>            
+        
+        
+        
+        <category>
+            <pattern>GenurileSubst</pattern>
+            <template>Care din genurile substantivului ai vrea sa-l studiezi?
+            
+            <button>
+                <text>Genul feminin</text>
+                <postback>Genfeminin</postback>
+            </button>
+            
+            <button>
+                <text>Genul masculin</text>
+                <postback>Genmasculin</postback>
+            </button>
+            
+            <button>
+                <text>Genul neutru</text>
+                <postback>Genneutru</postback>
+            </button>
+            
+             <think>
+                <set name = "topic">genurisubst</set>
+            </think>
+            <think>
+                <set name="tip">substgenuri</set>
+            </think>
+            
+            </template>
+            
+        </category>
+        
+         <!-- Genul feminin -->    
+        <category>
+            <pattern>Genfeminin</pattern>
+            <template>Ce ai dori sa stii despre genul feminin al substantivului?
+            
+            <button>
+                <text>Definitie</text>
+                <postback>DefintitieGenFeminin</postback>
+            </button>
+                
+            <button>
+                <text>Exemple</text>
+                <postback>ExempleGenFeminin</postback>
+            </button>
+                
+            </template>
+        </category>
+        
+        
+        <category>
+            <pattern>DefintitieGenFeminin</pattern>
+            <template>
+                Substantivele la genul feminin denumesc în general ființe de sex feminin sau obiecte care sunt considerate a fi de parte femeiască.
+            <button>
+                <text>Doresc sa invat altceva</text>
+                <postback>bine</postback>
+            </button>
+            </template>
+            
+        </category>
+        
+        <category>
+            <pattern>ExempleGenFeminin</pattern>
+            <template>
+                Exemple: fată (o fată – două fete), masă (o masă – două mese)
+                
+            <button>
+                <text>Doresc mai multe exemple</text>
+                <url>https://gramaticalimbiiromane.ro/exemple/exemple-substantiv/exemple-substantive-feminine/</url>
+            </button>
+            
+            <button>
+                <text>Doresc sa invat altceva</text>
+                <postback>bine</postback>
+            </button>
+            </template>
+            
+        </category>    
+        
+         <!-- Genul masculin -->    
+        <category>
+            <pattern>Genmasculin</pattern>
+            <template>Ce ai dori sa stii despre genul masculin al substantivului?
+            
+            <button>
+                <text>Definitie</text>
+                <postback>DefintitieGenMasculin</postback>
+            </button>
+                
+            <button>
+                <text>Exemple</text>
+                <postback>ExempleGenMasculin</postback>
+            </button>
+                
+            </template>
+        </category>
+        
+        
+        <category>
+            <pattern>DefintitieGenMasculin</pattern>
+            <template>
+                Substantivele la genul masculin denumesc în general ființe de parte bărbătească sau obiecte care sunt considerate a fi de parte bărbătească.
+            <button>
+                <text>Doresc sa invat altceva</text>
+                <postback>bine</postback>
+            </button>
+            </template>
+            
+        </category>
+        
+        <category>
+            <pattern>ExempleGenMasculin</pattern>
+            <template>
+                Exemple: băiat (un băiat – doi băieți), câine (un câine – doi câini)
+                
+            <button>
+                <text>Doresc mai multe exemple</text>
+                <url>https://gramaticalimbiiromane.ro/exemple/exemple-substantiv/exemple-substantive-masculine/</url>
+            </button>
+            
+            <button>
+                <text>Doresc sa invat altceva</text>
+                <postback>bine</postback>
+            </button>
+            </template>
+            
+        </category>
+        
+        <!-- Genul neutru -->    
+        <category>
+            <pattern>Genneutru</pattern>
+            <template>Ce ai dori sa stii despre genul neutru al substantivului?
+            
+            <button>
+                <text>Definitie</text>
+                <postback>DefintitieGenNeutru</postback>
+            </button>
+                
+            <button>
+                <text>Exemple</text>
+                <postback>ExempleGenNeutru</postback>
+            </button>
+                
+            </template>
+        </category>
+        
+        
+        <category>
+            <pattern>DefintitieGenNeutru</pattern>
+            <template>
+                Substantivele la genul neutru denumesc în general obiecte fără suflet, nume de lucruri, substantive cu sens colectiv, nume de țări, de fructe etc.
+            <button>
+                <text>Doresc sa invat altceva</text>
+                <postback>bine</postback>
+            </button>
+            </template>
+            
+        </category>
+        
+        <category>
+            <pattern>ExempleGenNeutru</pattern>
+            <template>
+                Exemple: scaun (un scaun – două scaune), pahar (un pahar – două pahare)
+            
+            <button>
+                <text>Doresc mai multe exemple</text>
+                <url>https://gramaticalimbiiromane.ro/exemple/exemple-substantiv/exemple-substantive-neutre/</url>
+            </button>    
+                
+            <button>
+                <text>Doresc sa invat altceva</text>
+                <postback>bine</postback>
+            </button>
+            </template>
+            
+        </category>
+        
+        <!-- Numarul substantivelor -->   
+        <category>
+            <pattern>NumarulSubst</pattern>
+            <template>Care din aceste numere ale substantivelor vrei sa-l studiezi?
+            
+            <button>
+                <text>Numarul singular</text>
+                <postback>Nrsingular</postback>
+            </button>
+            
+            <button>
+                <text>Numarul plural</text>
+                <postback>Nrplural</postback>
+            </button>
+            
+             <think>
+                <set name = "topic">nrsubst</set>
+            </think>
+            <think>
+                <set name="tip">substnumar</set>
+            </think>
+            
+            </template>
+        </category>
+        
+         <!-- Numarul SINGULAR -->  
+         <category>
+            <pattern>Nrsingular</pattern>
+            <template>Ce ai vrea sa stii despre substantivele la numarul singular?
+            
+            <button>
+                <text>Definitie</text>
+                <postback>DefintitieNrSingular</postback>
+            </button>
+                
+            <button>
+                <text>Exemple</text>
+                <postback>ExempleNrSingular</postback>
+            </button>
+                
+            </template>
+        </category>
+        
+        
+        <category>
+            <pattern>DefintitieNrSingular</pattern>
+            <template>
+                Numarul singular denumește un singur element.
+            <button>
+                <text>Doresc sa invat altceva</text>
+                <postback>bine</postback>
+            </button>
+            </template>
+            
+        </category>
+        
+        <category>
+            <pattern>ExempleNrSingular</pattern>
+            <template>
+                Exemple: fruct, lemn, animal, lucru etc.
+                
+            <button>
+                <text>Doresc mai multe exemple</text>
+                <url>https://www.youtube.com/watch?v=_GXURkn909Y</url>
+            </button>
+                
+            <button>
+                <text>Doresc sa invat altceva</text>
+                <postback>bine</postback>
+            </button>
+            </template>
+            
+        </category>
+        
+        <!-- Numarul PLURAL -->  
+         <category>
+            <pattern>Nrplural</pattern>
+            <template>Ce ai vrea sa stii despre substantivele la numarul plural?
+            
+            <button>
+                <text>Definitie</text>
+                <postback>DefintitieNrPlural</postback>
+            </button>
+                
+            <button>
+                <text>Exemple</text>
+                <postback>ExempleNrPlural</postback>
+            </button>
+                
+            </template>
+        </category>
+        
+        
+        <category>
+            <pattern>DefintitieNrPlural</pattern>
+            <template>
+                Numarul plural denumește două sau mai multe elemente.
+            <button>
+                <text>Doresc sa invat altceva</text>
+                <postback>bine</postback>
+            </button>
+            </template>
+            
+        </category>
+        
+        <category>
+            <pattern>ExempleNrPlural</pattern>
+            <template>
+                Exemple: fructe, lemne, animale, lucruri etc.
+                
+            <button>
+                <text>Doresc mai multe exemple</text>
+                <url>https://www.youtube.com/watch?v=_GXURkn909Y</url>
+            </button>
+                
+            <button>
+                <text>Doresc sa invat altceva</text>
+                <postback>bine</postback>
+            </button>
+            </template>
+            
+        </category>
+        
+        
+        <!-- PRONUMELE --> 
+        <category>
+            <pattern>Pronume</pattern>
+            <template>Ce ai dori sa inveti despre pronume?
+            
+            <carousel>
+            <card> 
+            <image>https://quizizz.com/_media/quizzes/4eee58c2-a361-45e7-87c1-048e38c1b31b_900_900</image>
+            </card>
+            
+			<card>
+			    
+            <button>
+                <text>Definitia pronumelui</text>
+                <postback>DefinitiePron</postback>
+            </button>
+            
+            <button>
+                <text>Clasificarea pronumelor</text>
+                <postback>ClasificareaPron</postback>
+            </button>
+             </card>
+            </carousel>
+            
+            <think>
+                <set name = "topic">pronume</set>
+            </think>
+            <think>
+                <set name="categorie">pronume</set>
+            </think>
+            
+            </template>
+        </category>
+        
+        <category>
+            <pattern>DefinitiePron</pattern>
+            <template>Pronumele este partea de vorbire flexibilă care are rolul de a înlocui substantivul. Acesta contribuie la o mai bună exprimare, ajutând la evitarea repetițiilor.
+           
+            <image>https://www.rei.plus/wp-content/uploads/2020/03/pronumele.png</image>
+            
+            <button>
+                <text>Doresc sa invat altceva</text>
+                <postback>bine</postback>
+            </button>
+            
+            </template>
+        </category>
+        
+        <category>
+            <pattern>ClasificareaPron</pattern>
+            <template>Ce tipuri de pronume ai vrea sa studiezi?
+            
+            <button>
+                <text>Pronume cu forme personale</text>
+                <postback>PronFormePres</postback>
+            </button>
+            
+            <button>
+                <text>Pronume fara forme personale</text>
+                <postback>PronFaraFormePres</postback>
+            </button>
+            
+            <think>
+                <set name = "topic">clasificareapron</set>
+            </think>
+            <think>
+                <set name="tip">pronclasificare</set>
+            </think>
+            
+            </template>
+        </category>
+        
+        <category>
+            <pattern>PronFormePres</pattern>
+            <template>Ce tipuri de pronume cu forme personale ai dori sa studiezi?
+                
+            <button>
+                <text>Pronume personal</text>
+                <postback>PronPersonal</postback>
+            </button>
+            
+             <button>
+                <text>Pronume de politete</text>
+                <postback>PronPolitete</postback>
+            </button>
+            
+             <button>
+                <text>Pronume reflexiv</text>
+                <postback>PronReflexiv</postback>
+            </button>
+            
+             <button>
+                <text>Pronume posesiv</text>
+                <postback>PronPosesiv</postback>
+            </button>
+            
+            <button>
+                <text>Doresc sa invat altceva</text>
+                <postback>bine</postback>
+            </button>
+            
+            <think>
+                <set name = "topic">pronumeformepersonale</set>
+            </think>
+            <think>
+                <set name="tip">pronformepersonale</set>
+            </think>
+            
+            </template>
+        </category>
+        
+        <!-- Pronume Personal -->
+        <category>
+            <pattern>PronPersonal</pattern>
+            <template>Ce ai dori sa stii despre pronumele personal?
+            
+             <button>
+                <text>Definitie</text>
+                <postback>DefPronPersonal</postback>
+            </button>
+            
+             <button>
+                <text>Exemple</text>
+                <postback>ExPronPersonal</postback>
+            </button>
+                
+            </template>
+        </category>
+            
+            <category>
+                <pattern>DefPronPersonal</pattern>
+                <template>Pronumele personal desemnează ființe sau obiecte, atribuindu-le una din trei persoane. Funcțiile sintactice îndeplinite de pronumele personal sunt, în general, aceleași cu cele ale substantivului.
+            
+                <button>
+                    <text>Doresc sa invat altceva</text>
+                    <postback>bine</postback>
+                </button>
+                </template>
+        
+            </category>
+            
+             <category>
+                <pattern>ExPronPersonal</pattern>
+                <template>Exemple: eu, tu, el, ele, noi, vouă, ție, mie
+                <button>
+                    <text>Doresc mai multe exemple</text>
+                    <url>https://gramaticalimbiiromane.ro/morfologia/parti-vorbire-flexibile/pronumele/pronumele-personal/#Formele_pronumelui_personal</url>
+                </button>
+            
+                <button>
+                    <text>Doresc sa invat altceva</text>
+                    <postback>bine</postback>
+                </button>
+                </template>
+        
+            </category>
+            
+        <!-- Pronume de Politete -->
+        <category>
+            <pattern>PronPolitete</pattern>
+            <template>Ce ai dori sa stii despre pronumele de politete?
+            
+             <button>
+                <text>Definitie</text>
+                <postback>DefPronPolitete</postback>
+            </button>
+            
+             <button>
+                <text>Exemple</text>
+                <postback>ExPronPolitete</postback>
+            </button>
+                
+            </template>
+        </category>
+            
+            <category>
+                <pattern>DefPronPolitete</pattern>
+                <template>Pronumele de politete are forme doar pentru persoanele a II-a și a III-a.
+            
+                <button>
+                    <text>Doresc sa invat altceva</text>
+                    <postback>bine</postback>
+                </button>
+                </template>
+        
+            </category>
+            
+             <category>
+                <pattern>ExPronPolitete</pattern>
+                <template>Exemple: dumneata, dumneavoastră, dumitale, dumnealui, dumneaei, dumnealor.
+                <button>
+                    <text>Doresc mai multe exemple</text>
+                    <url>https://gramaticalimbiiromane.ro/morfologia/parti-vorbire-flexibile/pronumele/pronumele-personal-politete/</url>
+                </button>
+            
+                <button>
+                    <text>Doresc sa invat altceva</text>
+                    <postback>bine</postback>
+                </button>
+                </template>
+        
+            </category>
+            
+        <!-- Pronume Reflexiv -->
+        <category>
+            <pattern>PronReflexiv</pattern>
+            <template>Ce ai dori sa stii despre pronumele reflexiv?
+            
+             <button>
+                <text>Definitie</text>
+                <postback>DefPronReflexiv</postback>
+            </button>
+            
+             <button>
+                <text>Exemple</text>
+                <postback>ExPronReflexiv</postback>
+            </button>
+                
+            </template>
+        </category>
+            
+            <category>
+                <pattern>DefPronReflexive</pattern>
+                <template>Pronumele reflexiv are rolul de a înlocui denumirea obiectului asupra căruia are loc acțiunea unui verb. Pronumele reflexiv are forme propriu-zise doar pentru persoana a III-a (pe sine, sieși, sie). Celorlaltor persoane le corespund forme neaccentuate ale pronumelui personal (cu valoare de pronume reflexiv).
+            
+                <button>
+                    <text>Doresc sa invat altceva</text>
+                    <postback>bine</postback>
+                </button>
+                </template>
+        
+            </category>
+            
+             <category>
+                <pattern>ExPronReflexiv</pattern>
+                <template>Exemple: <br></br>
+                            Andrei se gândește la viitorul familiei lui.<br></br>
+                            Eu mă încalț repede.
+                                   
+                <button>
+                    <text>Doresc mai multe exemple</text>
+                    <url>https://gramaticalimbiiromane.ro/morfologia/parti-vorbire-flexibile/pronumele/pronumele-reflexiv/</url>
+                </button>
+                
+                <button>
+                    <text>Doresc sa invat altceva</text>
+                    <postback>bine</postback>
+                </button>
+                </template>
+        
+            </category>
+            
+        <!-- Pronume Posesiv -->
+        <category>
+            <pattern>PronPosesiv</pattern>
+            <template>Ce ai dori sa stii despre pronumele posesiv?
+            
+             <button>
+                <text>Definitie</text>
+                <postback>DefPronPosesiv</postback>
+            </button>
+            
+             <button>
+                <text>Exemple</text>
+                <postback>ExPronPosesiv</postback>
+            </button>
+                
+            </template>
+        </category>
+            
+            <category>
+                <pattern>DefPronPosesiv</pattern>
+                <template>Pronumele posesiv înlocuiește numele posesorului unui obiect, sentiment, al unei opinii etc. Este precedat, de regulă, de articolul posesiv și are forme variate, care se modifică în funcție de genul și numărul substantivului care indică elementul posedat.
+            
+                <button>
+                    <text>Doresc sa invat altceva</text>
+                    <postback>bine</postback>
+                </button>
+                </template>
+        
+            </category>
+            
+             <category>
+                <pattern>ExPronPosesiv</pattern>
+                <template>Exemple: al meu, al tău, al său (al lui, al ei), al nostru, al vostru, a mea, a ta, a sa
+                
+                <button>
+                    <text>Doresc mai multe exemple</text>
+                    <url>https://gramaticalimbiiromane.ro/morfologia/parti-vorbire-flexibile/pronumele/pronumele-posesiv-adjectivul-pronominal-posesiv/</url>
+                </button>
+            
+                <button>
+                    <text>Doresc sa invat altceva</text>
+                    <postback>bine</postback>
+                </button>
+                </template>
+        
+            </category>
+        
+        <category>
+            <pattern>PronFaraFormePres</pattern>
+            <template>Ce tipuri de pronume fara forme personale ai dori sa studiezi?
+                
+            <button>
+                <text>Pronume demonstrativ</text>
+                <postback>PronDemonstrativ</postback>
+            </button>
+            
+             <button>
+                <text>Pronume nehotarat</text>
+                <postback>PronNehotarat</postback>
+            </button>
+            
+             <button>
+                <text>Pronume negativ</text>
+                <postback>PronNegativ</postback>
+            </button>
+            
+             <button>
+                <text>Pronume interogativ</text>
+                <postback>PronInterogativ</postback>
+            </button>
+            
+            <button>
+                <text>Pronume relativ</text>
+                <postback>PronRelativ</postback>
+            </button>
+            
+            <button>
+                <text>Doresc sa invat altceva</text>
+                <postback>bine</postback>
+            </button>
+            
+            <think>
+                <set name = "topic">pronumefaraformepersonale</set>
+            </think>
+            <think>
+                <set name="tip">pronfaraformepersonale</set>
+            </think>
+            
+            </template>
+        </category>
+        
+        <!-- Pronume Demonstrativ -->
+        <category>
+            <pattern>PronDemonstrativ</pattern>
+            <template>Ce ai dori sa stii despre pronumele demonstrativ?
+            
+             <button>
+                <text>Definitie</text>
+                <postback>DefPronDemonstrativ</postback>
+            </button>
+            
+             <button>
+                <text>Tipuri de pronume demonstrative</text>
+                <postback>TipuriPronDemonstrativ</postback>
+            </button>
+                
+            </template>
+        </category>
+            
+            <category>
+                <pattern>DefPronDemonstrativ</pattern>
+                <template>Pronumele demonstrativ este acela care se află în locul unui substantiv, arătând apropierea sau depărtarea obiectului (atât în spațiu, cât și în timp). Acest tip de pronume indică și identitatea obiectului cu sine însuși, precum și diferențierea lui de alte obiecte.
+            
+                <button>
+                    <text>Doresc sa invat altceva</text>
+                    <postback>bine</postback>
+                </button>
+                </template>
+        
+            </category>
+            
+             <category>
+                <pattern>TipuriPronDemonstrativ</pattern>
+                <template>Despre ce tip de pronume demonstrativ vrei sa inveti?
+                
+                 <button>
+                    <text>Pronume demonstrativ de apropiere</text>
+                    <postback>PronDemAp</postback>
+                </button>
+                
+                <button>
+                    <text>Pronume demonstrativ de departare</text>
+                    <postback>PronDemDep</postback>
+                </button>
+                
+                <button>
+                    <text>Pronume demonstrativ de identitate</text>
+                    <postback>PronDemIdent</postback>
+                </button>
+                
+                <button>
+                    <text>Pronume demonstrativ de diferentiere</text>
+                    <postback>PronDemDif</postback>
+                </button>
+            
+                <button>
+                    <text>Doresc sa invat altceva</text>
+                    <postback>bine</postback>
+                </button>
+                </template>
+        
+            </category>
+            
+                <category>
+                    <pattern>PronDemAp</pattern>
+                    <template>Exemple de pronume demonstrative de apropiere: acesta, aceasta, aceștia, acestea
+                    
+                    <button>
+                        <text>Doresc mai multe exemple</text>
+                        <url>https://gramaticalimbiiromane.ro/morfologia/parti-vorbire-flexibile/pronumele/pronumele-demonstrativ-adjectivul-pronominal-demonstrativ/#Pronumele_demonstrativ_de_apropiere</url>
+                    </button>
+                    
+                    <button>
+                        <text>Doresc sa invat altceva</text>
+                        <postback>bine</postback>
+                    </button>
+
+                </template>
+                </category>
+                
+                 <category>
+                    <pattern>PronDemDep</pattern>
+                    <template>Exemple de pronume demonstrative de departare: acela, aceea, aceia, acelea
+                    
+                     <button>
+                        <text>Doresc mai multe exemple</text>
+                        <url>https://gramaticalimbiiromane.ro/morfologia/parti-vorbire-flexibile/pronumele/pronumele-demonstrativ-adjectivul-pronominal-demonstrativ/#Pronumele_demonstrativ_de_departare</url>
+                    </button>
+                    
+                    <button>
+                        <text>Doresc sa invat altceva</text>
+                        <postback>bine</postback>
+                    </button>
+
+                </template>
+                </category>
+                
+                 <category>
+                    <pattern>PronDemIdent</pattern>
+                    <template>Exemple de pronume demonstrative de identitate:  același, aceeași, aceiași, aceleași
+                    
+                    <button>
+                        <text>Doresc mai multe exemple</text>
+                        <url>https://gramaticalimbiiromane.ro/morfologia/parti-vorbire-flexibile/pronumele/pronumele-demonstrativ-adjectivul-pronominal-demonstrativ/#Pronumele_demonstrativ_de_identitate</url>
+                    </button>
+                    
+                    <button>
+                        <text>Doresc sa invat altceva</text>
+                        <postback>bine</postback>
+                    </button>
+
+                </template>
+                </category>
+                
+                  <category>
+                    <pattern>PronDemDif</pattern>
+                    <template>Exemple de pronume demonstrative de diferentiere:  celălalt, cealaltă, ceilalți, celelalte
+                    
+                    <button>
+                        <text>Doresc mai multe exemple</text>
+                        <url>https://liceunet.ro/gramatica-romana/morfologie/pronumele#heading-5</url>
+                    </button>
+                    
+                    <button>
+                        <text>Doresc sa invat altceva</text>
+                        <postback>bine</postback>
+                    </button>
+
+                </template>
+                </category>
+                
+        <!-- Pronume Nehotarat -->
+        <category>
+            <pattern>PronNehotarat</pattern>
+            <template>Ce ai dori sa stii despre pronumele nehotarat?
+            
+             <button>
+                <text>Definitie</text>
+                <postback>DefPronNehotarat</postback>
+            </button>
+            
+             <button>
+                <text>Exemple</text>
+                <postback>ExPronNehotarat</postback>
+            </button>
+                
+            </template>
+        </category>
+            
+            <category>
+                <pattern>DefPronNehotarat</pattern>
+                <template>Pronumele nehotărât înlocuiește un substantiv, el oferă foarte puține informații despre obiectul înlocuit.
+            
+                <button>
+                    <text>Doresc sa invat altceva</text>
+                    <postback>bine</postback>
+                </button>
+                </template>
+        
+            </category>
+            
+             <category>
+                <pattern>ExPronNehotarat</pattern>
+                <template>Exemple: cineva, oricine, orice, unul, unii, altul, alta, orisicare, fiecare, oricat
+                
+                <button>
+                    <text>Doresc mai multe exemple</text>
+                    <url>https://gramaticalimbiiromane.ro/morfologia/parti-vorbire-flexibile/pronumele/pronumele-nehotarat-adjectivul-pronominal-nehotarat/</url>
+                </button>
+            
+                <button>
+                    <text>Doresc sa invat altceva</text>
+                    <postback>bine</postback>
+                </button>
+                </template>
+                
+            </category>
+            
+        <!-- Pronume Negativ -->
+        <category>
+            <pattern>PronNegativ</pattern>
+            <template>Ce ai dori sa stii despre pronumele negativ?
+            
+             <button>
+                <text>Definitie</text>
+                <postback>DefPronNegativ</postback>
+            </button>
+            
+             <button>
+                <text>Exemple</text>
+                <postback>ExPronNegativ</postback>
+            </button>
+                
+            </template>
+        </category>
+            
+            <category>
+                <pattern>DefPronNegativ</pattern>
+                <template>Pronumele negativ exprimă inexistența unei ființe sau a unui obiect.
+            
+                <button>
+                    <text>Doresc sa invat altceva</text>
+                    <postback>bine</postback>
+                </button>
+                </template>
+        
+            </category>
+            
+             <category>
+                <pattern>ExPronNegativ</pattern>
+                <template>Exemple: nimeni, nimic, niciun, nicio
+                
+                <button>
+                    <text>Doresc mai multe exemple</text>
+                    <url>https://gramaticalimbiiromane.ro/morfologia/parti-vorbire-flexibile/pronumele/pronumele-negativ-adjectivul-pronominal-negativ/</url>
+                </button>
+            
+                <button>
+                    <text>Doresc sa invat altceva</text>
+                    <postback>bine</postback>
+                </button>
+                </template>
+                
+            </category>    
+            
+        <!-- Pronume Interogativ -->
+        <category>
+            <pattern>PronInterogativ</pattern>
+            <template>Ce ai dori sa stii despre pronumele interogativ?
+            
+             <button>
+                <text>Definitie</text>
+                <postback>DefPronInterogativ</postback>
+            </button>
+            
+             <button>
+                <text>Exemple</text>
+                <postback>ExPronInterogativ</postback>
+            </button>
+                
+            </template>
+        </category>
+            
+            <category>
+                <pattern>DefPronInterogativ</pattern>
+                <template>Pronumele interogativ se regăsește doar în propoziții interogative, înlocuind un substantiv așteptat ca răspuns în cadrul acestora.
+            
+                <button>
+                    <text>Doresc sa invat altceva</text>
+                    <postback>bine</postback>
+                </button>
+                </template>
+        
+            </category>
+            
+             <category>
+                <pattern>ExPronInterogativ</pattern>
+                <template>Exemple: ce?, cine?, care?
+                
+                <button>
+                    <text>Doresc mai multe exemple</text>
+                    <url>https://gramaticalimbiiromane.ro/morfologia/parti-vorbire-flexibile/pronumele/pronumele-interogativ-adjectivul-pronominal-interogativ/</url>
+                </button>
+            
+                <button>
+                    <text>Doresc sa invat altceva</text>
+                    <postback>bine</postback>
+                </button>
+                </template>
+                
+            </category>    
+            
+        <!-- Pronume Relativ -->
+        <category>
+            <pattern>PronRelativ</pattern>
+            <template>Ce ai dori sa stii despre pronumele relativ?
+            
+             <button>
+                <text>Definitie</text>
+                <postback>DefPronRelativ</postback>
+            </button>
+            
+             <button>
+                <text>Exemple</text>
+                <postback>ExPronRelativ</postback>
+            </button>
+                
+            </template>
+        </category>
+            
+            <category>
+                <pattern>DefPronRelativ</pattern>
+                <template>Pronumele relativ stabilește relația dintre o propoziție subordonată și regenta acesteia. Așadar, acest tip de pronume se va utiliza doar în cadrul unei fraze, având același rol cu cel al conjuncțiilor subordonatoare și al adverbelor relative.
+            
+                <button>
+                    <text>Doresc sa invat altceva</text>
+                    <postback>bine</postback>
+                </button>
+                </template>
+        
+            </category>
+            
+             <category>
+                <pattern>ExPronRelativ</pattern>
+                <template>Exemple: ce, cine, care, cel care, ceea ce
+                
+                <button>
+                    <text>Doresc mai multe exemple</text>
+                    <url>https://gramaticalimbiiromane.ro/morfologia/parti-vorbire-flexibile/pronumele/pronumele-relativ-adjectivul-pronominal-relativ/</url>
+                </button>
+            
+                <button>
+                    <text>Doresc sa invat altceva</text>
+                    <postback>bine</postback>
+                </button>
+                </template>
+                
+            </category> 
+        
+        <!-- VERBUL --> 
+        <category>
+            <pattern>Verb</pattern>
+            <template>Ce ai dori sa inveti despre verb?
+            <carousel>
+            <card> 
+            <image>https://www.online-german-course.com/image/2021/05/Separable-and-Inseparable-verbs-980x735.jpeg</image>
+            </card>
+            
+            <card>
+            <button>
+                <text>Definitia verbului</text>
+                <postback>DefinitieVerb</postback>
+            </button>
+            
+            <button>
+                <text>Clasificarea verbelor</text>
+                <postback>ClasificareaVerb</postback>
+            </button>
+            
+            <button>
+                <text>Timpurile verbale</text>
+                <postback>TimpVerb</postback>
+            </button>
+            
+            <button>
+                <text>Modurile verbale</text>
+                <postback>ModuriVerb</postback>
+            </button>
+            </card>
+            </carousel>
+            
+            <think>
+                <set name = "topic">verb</set>
+            </think>
+            <think>
+                <set name="categorie">verb</set>
+            </think>
+
+            </template>
+        </category>
+        
+        
+        <category>
+            <pattern>DefinitieVerb</pattern>
+            <template>Verbul este partea de vorbire principală și flexibilă care exprimă o acțiune, o stare sau, pur și simplu, existența. Din punctul de vedere al capacității de flexiune, verbul este cea mai complexă parte de vorbire, întrucât poate lua forme variate și numeroase.
+                
+            <image>https://www.rei.plus/wp-content/uploads/2020/03/verbul.png</image>
+            
+            <button>
+                <text>Doresc sa invat altceva</text>
+                <postback>bine</postback>
+            </button>
+            
+            </template>
+        </category>
+            
+        <category>
+            <pattern>ClasificareaVerb</pattern>
+            <template>Care dintre urmatoarele tipuri de verbe ai dori sa le studiezi?
+            <button>
+                <text>Verb personal</text>
+                <postback>VerbPersonal</postback>
+            </button>
+            
+            <button>
+                <text>Verb impersonal</text>
+                <postback>VerbImpersonal</postback>
+            </button>
+            
+            <button>
+                <text>Verb predicativ</text>
+                <postback>VerbPredicativ</postback>
+            </button>
+            
+            <think>
+                <set name = "topic">clasificareverb</set>
+            </think>
+            <think>
+                <set name="tip">verbclasificare</set>
+            </think>
+            
+            </template>
+        </category>
+        
+        <!-- Verb Personal -->
+            <category>
+                <pattern>VerbPersonal</pattern>
+                <template>Ce ai dori sa stii despre verbele personale?
+                <button>
+                    <text>Definitie</text>
+                    <postback>DefVerbPers</postback>
+                </button>
+            
+                 <button>
+                    <text>Exemple</text>
+                    <postback>ExVerbPers</postback>
+                </button>
+                
+                <think>
+                    <set name = "topic">verbpersonal</set>
+                </think>
+                <think>
+                    <set name="tip">verbpers</set>
+                </think>
+                    
+                </template>
+            </category>
+            
+            <category>
+                <pattern>DefVerbPers</pattern>
+                <template>Verbul personal are forme pentru toate persoanele. El permite existența unui subiect cu care se va acorda întotdeauna în persoană și număr, conjugându-se la toate persoanele.
+                
+                <button>
+				    <text>Doresc sa invat altceva</text>
+					<postback>bine</postback>
+				</button>
+                
+                </template>
+            </category>
+            
+             <category>
+                <pattern>ExVerbPers</pattern>
+                <template>Exemplu: a dormi (eu dorm, tu dormi, el/ea doarme, ei/ele dorm)
+                            
+                <button>
+                    <text>Doresc mai multe exemple</text>
+                    <url>https://gramaticalimbiiromane.ro/morfologia/parti-vorbire-flexibile/verbul/verbe-personale-impersonale/</url>
+                </button>
+                
+                <button>
+				    <text>Doresc sa invat altceva</text>
+					<postback>bine</postback>
+				</button>
+                
+                </template>
+            </category>
+            
+            <!-- Verb Impersonal -->
+            <category>
+                <pattern>VerbImpersonal</pattern>
+                <template>Ce ai dori sa stii despre verbele impersonale?
+                <button>
+                    <text>Definitie</text>
+                    <postback>DefVerbImpersonal</postback>
+                </button>
+            
+                 <button>
+                    <text>Exemple</text>
+                    <postback>ExVerbImpersonal</postback>
+                </button>
+                
+                <think>
+                    <set name = "topic">verbimpersonal</set>
+                </think>
+                <think>
+                    <set name="tip">verbimpers</set>
+                </think>
+                    
+                </template>
+            </category>
+            
+            <category>
+                <pattern>DefVerbImpersonal</pattern>
+                <template>Verbul impersonal are numai o formă, pentru persoana a III-a, numărul singular. Acțiunea exprimată prin verbul în cauză nu poate fi atribuită unei persoane.
+                
+                <button>
+				    <text>Doresc sa invat altceva</text>
+					<postback>bine</postback>
+				</button>
+                
+                </template>
+            </category>
+            
+             <category>
+                <pattern>ExVerbImpersonal</pattern>
+                <template>Exemplu: <br></br>
+                            E luni și este frig afară.
+                
+                <button>
+                    <text>Doresc mai multe exemple</text>
+                    <url>https://anidescoala.ro/educatie/gramatica/parti-de-vorbire/exemple-de-verbe-impersonale/</url>
+                </button> 
+                
+                <button>
+				    <text>Doresc sa invat altceva</text>
+					<postback>bine</postback>
+				</button>
+                
+                </template>
+            </category>
+            
+            <!-- Verb Predicativ -->
+            <category>
+                <pattern>VerbPredicativ</pattern>
+                <template>Ce ai dori sa stii despre verbele predicative?
+                <button>
+                    <text>Definitie</text>
+                    <postback>DefVerbPredicativ</postback>
+                </button>
+            
+                 <button>
+                    <text>Exemple</text>
+                    <postback>ExVerbPredicativ</postback>
+                </button>
+                
+                <think>
+                    <set name = "topic">verbpredicativ</set>
+                </think>
+                <think>
+                    <set name="tip">verbimpred</set>
+                </think>
+                    
+                    
+                </template>
+            </category>
+            
+            <category>
+                <pattern>DefVerbPredicativ</pattern>
+                <template>Verbul predicativ poate forma singur predicatul dacă se află la un mod predicativ. Astfel, de obicei, verbul predicativ îndeplinește de unul singur funcția sintactică de predicat verbal.
+                
+                <button>
+				    <text>Doresc sa invat altceva</text>
+					<postback>bine</postback>
+				</button>
+                
+                </template>
+            </category>
+            
+             <category>
+                <pattern>ExVerbPredicativ</pattern>
+                <template>Exemplu: <br></br>
+                            Bărbatul mănâncă.
+                            
+                <button>
+                    <text>Doresc mai multe exemple</text>
+                    <url>https://www.examenultau.ro/blog/verbul-verbe-predicative-verbe-copulative-locutiunea-verbala/</url>
+                </button>            
+                
+                <button>
+				    <text>Doresc sa invat altceva</text>
+					<postback>bine</postback>
+				</button>
+                
+                </template>
+            </category>
+        
+        <!-- Timpuri verbale -->
+        <category>
+            <pattern>TimpVerb</pattern>
+            <template>Ce ai dori sa stii despre timpurile verbale?
+                <button>
+                    <text>Definitie</text>
+                    <postback>DefTimpVerb</postback>
+                </button>
+                
+                <button>
+                    <text>Clasificare</text>
+                    <postback>ClasTimpVerb</postback>
+                </button>
+                
+                <think>
+                    <set name = "topic">timpuriverbale</set>
+                </think>
+                <think>
+                    <set name="tip">timpuriverb</set>
+                </think>
+                    
+            </template>
+        </category>
+        
+        <category>
+            <pattern>DefTimpVerb</pattern>
+            <template>Timpul unui verb indică momentul în care se petrece acțiunea indicată de către acesta. Forma verbului arată dacă acțiunea se petrece în prezent, trecut sau viitor.
+                <button>
+				    <text>Doresc sa invat altceva</text>
+					<postback>bine</postback>
+				</button> 
+            </template>
+        </category>
+        
+        <category>
+            <pattern>ClasTimpVerb</pattern>
+            <template>Ce timpuri verbale doresti sa studiezi?
+                <button>
+				    <text>Timpul prezent</text>
+					<postback>TimpPrez</postback>
+				</button> 
+				
+				<button>
+				    <text>Timpul trecut</text>
+					<postback>TimpTrecut</postback>
+				</button> 
+				
+				<button>
+				    <text>Timpul viitor</text>
+					<postback>TimpViitor</postback>
+				</button> 
+				
+			    <think>
+                    <set name = "topic">clasificaretimpverbale</set>
+                </think>
+                <think>
+                    <set name="tip">timpverbaleclasificare</set>
+                 </think>	
+				
+            </template>
+        </category>
+        
+        <!-- Timpul Prezent-->
+        <category>
+            <pattern>TimpPrez</pattern>
+            <template>Ce ai dori sa stii despre timpul prezent?
+                <button>
+                    <text>Definitie</text>
+                    <postback>DefTimpPrez</postback>
+                </button>
+            
+                 <button>
+                    <text>Exemple</text>
+                    <postback>ExTimpPrez</postback>
+                </button>
+                
+                <think>
+                    <set name = "topic">timpprezent</set>
+                </think>
+                <think>
+                    <set name="tip">timpprez</set>
+                </think>
+                    
+                    
+            </template>
+        </category>
+            
+            
+            <category>
+                <pattern>DefTimpPrez</pattern>
+                <template>Verbul aflat la timpul prezent indică faptul că acțiunea exprimată prin intermediul acestuia se petrece în momentul vorbirii.
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <category>
+                <pattern>ExTimpPrez</pattern>
+                <template>Exemplu: <br></br>
+                            Alina mănâncă un măr.
+                
+                <button>
+                    <text>Doresc mai multe exemple</text>
+                    <url>https://verbavolant.ro/modurile-si-timpurile-verbelor-in-romana-partea-1#timpul-prezent</url>
+                </button>
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+        <!-- Timpul Trecut-->
+        <category>
+            <pattern>TimpTrecut</pattern>
+            <template>Ce ai dori sa stii despre timpul trecut?
+                <button>
+                    <text>Definitie</text>
+                    <postback>DefTimpTrecut</postback>
+                </button>
+            
+                 <button>
+                    <text>Clasificare</text>
+                    <postback>ClasTimpTrecut</postback>
+                </button>
+                
+                <think>
+                    <set name = "topic">timptrecut</set>
+                </think>
+                <think>
+                    <set name="tip">timptrec</set>
+                </think>
+                    
+            </template>
+        </category>
+            
+            <category>
+                <pattern>DefTimpTrecut</pattern>
+                <template>Verbul aflat la timpul trecut indică faptul că acțiunea exprimată de acesta se petrece înaintea momentului vorbirii.
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <category>
+                <pattern>ClasTimpTrecut</pattern>
+                <template>Ce timp ai vrea sa studiezi?
+                
+                    <button>
+				        <text>Timpul imperfect</text>
+					    <postback>TimpImp</postback>
+			    	</button>  
+			    	
+			    	 <button>
+				        <text>Timpul perfect simplu</text>
+					    <postback>TimpPerfSimp</postback>
+			    	</button> 
+			    	
+			    	 <button>
+				        <text>Timpul perfect compus</text>
+					    <postback>TimpPerfComp</postback>
+			    	</button> 
+			    	
+			    	 <button>
+				        <text>Timpul mai mult ca perfect</text>
+					    <postback>TimpMMPerf</postback>
+			    	</button> 
+                    
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <!-- Timpul Trecut - Timpul imperfect-->
+            <category>
+                <pattern>TimpImp</pattern>
+                <template>Ce ai dori sa stii despre timpul imperfect?
+                    <button>
+				        <text>Definitie</text>
+					    <postback>DefTimpImp</postback>
+			    	</button>
+			    	
+			    	<button>
+				        <text>Exemple</text>
+					    <postback>ExTimpImp</postback>
+			    	</button>
+			    	
+                </template>
+            </category>
+        
+            <category>
+                <pattern>DefTimpImp</pattern>
+                <template>Timpul imperfect exprimă o acțiune începută în trecut, dar neîncheiată.
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <category>
+                <pattern>ExTimpImp</pattern>
+                <template>Exemplu: <br></br>
+                            Priveam pe fereastră.
+                
+                <button>
+                    <text>Doresc mai multe exemple</text>
+                    <url>https://verbavolant.ro/modurile-si-timpurile-verbelor-in-romana-partea-1#Imperfect</url>
+                </button>
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+                
+            <!-- Timpul Trecut - Timpul perfect simplu-->
+            <category>
+                <pattern>TimpPerfSimp</pattern>
+                <template>Ce ai dori sa stii despre timpul perfect simplu?
+                    <button>
+				        <text>Definitie</text>
+					    <postback>DefTimpPerfSimp</postback>
+			    	</button>
+			    	
+			    	<button>
+				        <text>Exemple</text>
+					    <postback>ExTimpPerfSimp</postback>
+			    	</button>
+			    	
+                </template>
+            </category>
+        
+            <category>
+                <pattern>DefTimpPerfSimp</pattern>
+                <template>Timpul perfect simplu indică o acțiune realizată în trecut și încheiată recent. Acest timp verbal este specific mai degrabă comunicării orale decât celei scrise.
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>da</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <category>
+                <pattern>ExTimpPerfSimp</pattern>
+                <template>Exemple: <br></br>
+                            Privii pe fereastră. <br></br>
+                            Făcui o prăjitură.
+                                   
+                    <button>
+                        <text>Doresc mai multe exemple</text>
+                        <url>https://verbavolant.ro/modurile-si-timpurile-verbelor-in-romana-partea-1#Perfect-simplu</url>
+                    </button>               
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+                
+                
+            <!-- Timpul Trecut - Timpul perfect compus-->
+            <category>
+                <pattern>TimpPerfComp</pattern>
+                <template>Ce ai dori sa stii despre timpul perfect compus?
+                    <button>
+				        <text>Definitie</text>
+					    <postback>DefTimpPerfComp</postback>
+			    	</button>
+			    	
+			    	<button>
+				        <text>Exemple</text>
+					    <postback>ExTimpPerfComp</postback>
+			    	</button>
+			    	
+                </template>
+            </category>
+        
+            <category>
+                <pattern>DefTimpPerfComp</pattern>
+                <template>Timpul perfect compus arată o acțiune făcută și încheiată în trecut. Se construiește cu ajutorul verbului „a avea”.
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>da</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <category>
+                <pattern>ExTimpPerfComp</pattern>
+                <template>Exemplu: <br></br>
+                            Am privit pe fereastră.
+                
+                    <button>
+                        <text>Doresc mai multe exemple</text>
+                        <url>https://verbavolant.ro/modurile-si-timpurile-verbelor-in-romana-partea-1#Perfect-compus</url>
+                    </button>  
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <!-- Timpul Trecut - Timpul mai mult ca perfect-->
+            <category>
+                <pattern>TimpMMPerf</pattern>
+                <template>Ce ai dori sa stii despre timpul mai mult ca perfect?
+                    <button>
+				        <text>Definitie</text>
+					    <postback>DefTimpMMPerf</postback>
+			    	</button>
+			    	
+			    	<button>
+				        <text>Exemple</text>
+					    <postback>ExTimpMMPerf</postback>
+			    	</button>
+			    	
+                </template>
+            </category>
+        
+            <category>
+                <pattern>DefTimpMMPerf</pattern>
+                <template>Timpul mai mult ca perfect indică o acțiune care a fost atât începută, cât și încheiată într-un moment trecut, înaintea unei alte acțiuni trecute.
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <category>
+                <pattern>ExTimpMMPerf</pattern>
+                <template>Exemplu: <br></br>
+                            Privisem pe fereastră.
+                
+                <button>
+                    <text>Doresc mai multe exemple</text>
+                    <url>https://verbavolant.ro/modurile-si-timpurile-verbelor-in-romana-partea-1#Mai-mult-ca-perfect</url>
+                </button>
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+        
+        <!-- Timpul Viitor-->
+        <category>
+            <pattern>TimpViitor</pattern>
+            <template>Ce ai dori sa stii despre timpul viitor?
+                <button>
+                    <text>Definitie</text>
+                    <postback>DefTimpViitor</postback>
+                </button>
+            
+                 <button>
+                    <text>Clasificare</text>
+                    <postback>ClasTimpViitor</postback>
+                </button>
+                
+                <think>
+                    <set name = "topic">timpviitor</set>
+                </think>
+                <think>
+                    <set name="tip">timpviitor</set>
+                </think>
+                    
+            </template>
+        </category>  
+        
+            <category>
+                <pattern>DefTimpViitor</pattern>
+                <template>Timpul viitor indică faptul că acțiunea exprimată prin intermediul verbului va avea loc în viitor, după momentul vorbirii.
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <category>
+                <pattern>ClasTimpViitor</pattern>
+                <template>Ce timp ai vrea sa studiezi?
+                
+                    <button>
+				        <text>Viitor simplu</text>
+					    <postback>ViitorSimp</postback>
+			    	</button>  
+			    	
+			    	 <button>
+				        <text>Viitor anterior</text>
+					    <postback>ViitorAnt</postback>
+			    	</button> 
+                    
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>    
+            
+            
+            <!-- Timpul Viitor - Viitor simplu-->
+            <category>
+                <pattern>ViitorSimp</pattern>
+                <template>Ce vrei sa stii despre viitorul simplu?
+                    <button>
+				        <text>Definitie</text>
+					    <postback>DefViitorSimp</postback>
+			    	</button>
+			    	
+			    	<button>
+				        <text>Exemple</text>
+					    <postback>ExViitorSimp</postback>
+			    	</button>
+			    	
+                </template>
+            </category>
+        
+            <category>
+                <pattern>DefViitorSimp</pattern>
+                <template>Viitorul simplu se formează cu ajutorul verbului „a vrea” + infinitivul verbului de conjugat
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <category>
+                <pattern>ExViitorSimp</pattern>
+                <template>Exemplu: voi fi, vei fi, vor fi, vom fi, veți fi, vor fi (verbul "a fi")
+                
+                    <button>
+                        <text>Doresc mai multe exemple</text>
+                        <url>https://verbavolant.ro/modurile-si-timpurile-verbelor-in-romana-partea-1#viitor</url>
+                    </button>
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <!-- Timpul Viitor - Viitor anterior-->
+            <category>
+                <pattern>ViitorAnt</pattern>
+                <template>Ce vrei sa stii despre viitorul anterior?
+                    <button>
+				        <text>Definitie</text>
+					    <postback>DefViitorAnt</postback>
+			    	</button>
+			    	
+			    	<button>
+				        <text>Exemple</text>
+					    <postback>ExViitorAnt</postback>
+			    	</button>
+			    	
+                </template>
+            </category>
+        
+            <category>
+                <pattern>DefViitorAnt</pattern>
+                <template>Timpul viitor anterior reprezintă o nuanță a viitorului și arată o acțiune care va avea lor înaintea unei alte acțiuni viitoare.
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <category>
+                <pattern>ExViitorAnt</pattern>
+                <template>Exemplu: <br></br>
+                            Eu voi fi privit pe fereastră înainte ca el să intre în casă.
+                        
+                    <button>
+                        <text>Doresc mai multe exemple</text>
+                        <url>https://verbavolant.ro/modurile-si-timpurile-verbelor-in-romana-partea-1#viitor-anterior</url>
+                    </button>
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+        <!-- Modurile verbale -->
+        <category>
+            <pattern>ModuriVerb</pattern>
+            <template>Ce ai vrea sa stii despre modurile verbale?
+                <button>
+                    <text>Definitie</text>
+                    <postback>DefModuriVerb</postback>
+                </button>
+                
+                <button>
+                    <text>Clasificare</text>
+                    <postback>ClasModuriVerb</postback>
+                </button>
+                
+                <think>
+                    <set name = "topic">moduriverbale</set>
+                </think>
+                <think>
+                    <set name="tip">moduriverb</set>
+                </think>
+                
+            </template>
+        </category>
+        
+        <category>
+            <pattern>DefModuriVerb</pattern>
+            <template>Modul unui verb este forma pe care acesta o ia pentru a indica perspectiva vorbitorului asupra acțiunii.
+                <button>
+				    <text>Doresc sa invat altceva</text>
+					<postback>bine</postback>
+				</button> 
+            </template>
+        </category>
+        
+        <category>
+            <pattern>ClasModuriVerb</pattern>
+            <template>Despre ce mod ai vrea sa studiezi?
+                <button>
+				    <text>Modurile personal</text>
+					<postback>ModPersonal</postback>
+				</button> 
+				
+				<button>
+				    <text>Modurile nepersonal</text>
+					<postback>ModNepersonal</postback>
+				</button> 
+				
+			    <think>
+                    <set name = "topic">clasmoduriverbale</set>
+                </think>
+                <think>
+                    <set name="tip">moduriverbaleclas</set>
+                 </think>	
+				
+            </template>
+        </category>
+        
+        <!-- Modurile Personale -->
+        <category>
+            <pattern>ModPersonal</pattern>
+            <template>Ce vrei sa stii despre modurile personale?
+                <button>
+                    <text>Definitie</text>
+                    <postback>DefModPersonal</postback>
+                </button>
+            
+                 <button>
+                    <text>Clasificare</text>
+                    <postback>ClasModPersonal</postback>
+                </button>
+                
+                <think>
+                    <set name = "topic">modurilepersonale</set>
+                </think>
+                <think>
+                    <set name="tip">modurilepersonale</set>
+                 </think>
+                    
+            </template>
+        </category>
+            
+            <category>
+                <pattern>DefModPersonal</pattern>
+                <template>Modurile personale se numesc astfel deoarece își modifică forma în funcție de persoană. Ele se mai numesc „predicative”, întrucât, aflate în aceste moduri, verbele îndeplinesc funcția sintactică de predicat.
+                
+                <button>
+				    <text>Doresc sa invat altceva</text>
+					<postback>bine</postback>
+				</button>
+                
+                </template>
+            </category>
+            
+             <category>
+                <pattern>ClasModPersonal</pattern>
+                <template>Ce vrei sa stii despre modurile personale?
+                    
+                <button>
+				    <text>Modul indicativ</text>
+					<postback>ModIndicativ</postback>
+				</button>    
+				
+				<button>
+				    <text>Modul conjunctiv</text>
+					<postback>ModConjunctiv</postback>
+				</button>
+				
+				<button>
+				    <text>Modul conditional-optativ</text>
+					<postback>ModCondOptativ</postback>
+				</button>    
+				
+				<button>
+				    <text>Modul imperativ</text>
+					<postback>ModImperativ</postback>
+				</button>  
+                
+                <button>
+				    <text>Doresc sa invat altceva</text>
+					<postback>bine</postback>
+				</button>
+                
+                </template>
+            </category>
+            
+            <!-- Modul Indicativ-->
+            <category>
+                <pattern>ModIndicativ</pattern>
+                <template>Ce ai dori sa stii despre modul indicativ?
+                    <button>
+				        <text>Definitie</text>
+					    <postback>DefModIndicativ</postback>
+			    	</button>
+			    	
+			    	<button>
+				        <text>Exemple</text>
+					    <postback>ExModIndicativ</postback>
+			    	</button>
+			    	
+                </template>
+            </category>
+        
+            <category>
+                <pattern>DefModIndicativ</pattern>
+                <template>Modul indicativ arată o acțiune reală exprimată la timpuri bine delimitate: prezent, imperfect, perfect simplu, perfect compus, mai mult ca perfect și viitor.
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <category>
+                <pattern>ExModIndicativ</pattern>
+                <template>Exemple: <br></br>
+                                Mănânc. (timpul prezent)<br></br>
+                                Mâncam. (timpul imperfect)<br></br>
+                                Mâncai. (timpul perfect simplu)<br></br>
+                                Am mâncat. (timpul perfect compus)<br></br>
+                                Mâncasem. (timpul mai mult ca perfect) <br></br>                       
+                                Voi mânca. (timpul viitor)<br></br>
+                                Voi fi mâncat. (timpul viitor anterior)
+                                    
+                    <button>
+                        <text>Doresc mai multe exemple</text>
+                        <url>https://gramaticalimbiiromane.ro/morfologia/parti-vorbire-flexibile/verbul/modurile-verbelor/modul-indicativ/</url>
+                    </button>                
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+         <!-- Modul Conjunctiv-->
+            <category>
+                <pattern>ModConjunctiv</pattern>
+                <template>Ce ai dori sa stii despre modul conjunctiv?
+                    <button>
+				        <text>Definitie</text>
+					    <postback>DefModConjunctiv</postback>
+			    	</button>
+			    	
+			    	<button>
+				        <text>Exemple</text>
+					    <postback>ExModConjunctiv</postback>
+			    	</button>
+			    	
+                </template>
+            </category>
+        
+            <category>
+                <pattern>DefModConjunctiv</pattern>
+                <template>Modul conjunctiv se construiește cu ajutorul conjuncției „să” și indică o acțiune posibilă.
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <category>
+                <pattern>ExModConjunctiv</pattern>
+                <template>Exemple: <br></br>
+                            Să mănânc. (conjunctiv prezent)<br></br>
+                            Să fi mâncat. (conjunctiv perfect)
+                    <button>
+                        <text>Doresc mai multe exemple</text>
+                        <url>https://verbavolant.ro/modurile-si-timpurile-verbelor-in-romana-partea-2#modul-conjunctiv</url>
+                    </button>                
+                                    
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <!-- Modul Conditional-optativ -->
+            <category>
+                <pattern>ModCondOptativ</pattern>
+                <template>Ce ai dori sa stii despre modul conditional-optativ?
+                    <button>
+				        <text>Definitie</text>
+					    <postback>DefModCondOptativ</postback>
+			    	</button>
+			    	
+			    	<button>
+				        <text>Exemple</text>
+					    <postback>ExModCondOptativ</postback>
+			    	</button>
+			    	
+                </template>
+            </category>
+        
+            <category>
+                <pattern>DefModCondOptativ</pattern>
+                <template>Modul condițional-optativ indică o acțiune a cărei realizare este condiționată de unul sau mai mulți factori. La timpul prezent, modul condițional-optativ se formează cu ajutorul infinitivului verbului de conjugat, căruia i se adaugă una dintre formele verbului auxiliar „a avea” .
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <category>
+                <pattern>ExModCondOptativ</pattern>
+                <template>Exemple: <br></br>
+                            Aș mânca. (condițional-optativ prezent)<br></br>
+                            Aș fi mâncat. (condițional-optativ perfect)
+                                    
+                    <button>
+                        <text>Doresc mai multe exemple</text>
+                        <url>https://verbavolant.ro/modurile-si-timpurile-verbelor-in-romana-partea-2#modul-conditional-optativ</url>
+                    </button>                
+                                    
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <!-- Modul Imperativ -->
+            <category>
+                <pattern>ModImperativ</pattern>
+                <template>Ce ai dori sa stii despre modul imperativ?
+                    <button>
+				        <text>Definitie</text>
+					    <postback>DefModImperativ</postback>
+			    	</button>
+			    	
+			    	<button>
+				        <text>Exemple</text>
+					    <postback>ExModImperativ</postback>
+			    	</button>
+			    	
+                </template>
+            </category>
+        
+            <category>
+                <pattern>DefModImperativ</pattern>
+                <template>Modul imperativ poate exprima: o rugăminte, un îndemn, un ordin sau o urare. El prezintă atât forme afirmative, cât și negative, însă numai pentru persoana a II-a (singular și plural).
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <category>
+                <pattern>ExModImperativ</pattern>
+                <template>Exemple: <br></br>
+                            Mănâncă!<br></br>
+                            Nu mâncați!
+                                    
+                    <button>
+                        <text>Doresc mai multe exemple</text>
+                        <url>https://verbavolant.ro/modurile-si-timpurile-verbelor-in-romana-partea-2#modul-imperativ</url>
+                    </button>                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <!-- Modurile Nepersonale -->
+        <category>
+            <pattern>ModNepersonal</pattern>
+            <template>Ce vrei sa stii despre modurile nepersonale?
+                <button>
+                    <text>Definitie</text>
+                    <postback>DefModNepersonal</postback>
+                </button>
+            
+                 <button>
+                    <text>Clasificare</text>
+                    <postback>ClasModNepersonal</postback>
+                </button>
+                    
+                <think>
+                    <set name = "topic">modurilenepersonale</set>
+                </think>
+                <think>
+                    <set name="tip">modurilenepersonale</set>
+                 </think>
+                 
+            </template>
+        </category>
+            
+            <category>
+                <pattern>DefModNepersonal</pattern>
+                <template>Modurile nepersonale nu își schimbă forma în funcție de persoană, neîndeplinind nici funcția sintactică de predicat (motiv pentru care se numesc „moduri nepredicative”).
+                
+                <button>
+				    <text>Doresc sa invat altceva</text>
+					<postback>bine</postback>
+				</button>
+                
+                </template>
+            </category>
+            
+             <category>
+                <pattern>ClasModNepersonal</pattern>
+                <template>Ce vrei sa stii despre modurile nepersonale?
+                    
+                <button>
+				    <text>Modul infinitiv</text>
+					<postback>ModInfinitiv</postback>
+				</button>    
+				
+				<button>
+				    <text>Modul participiu</text>
+					<postback>ModParticipiu</postback>
+				</button>
+				
+				<button>
+				    <text>Modul gerunziuv</text>
+					<postback>ModGerunziu</postback>
+				</button>    
+				
+				<button>
+				    <text>Modul supin</text>
+					<postback>ModSupin</postback>
+				</button>  
+                
+                <button>
+				    <text>Doresc sa invat altceva</text>
+					<postback>bine</postback>
+				</button>
+                
+                </template>
+            </category>
+            
+            <!-- Modul Infintitiv-->
+            <category>
+                <pattern>ModInfinitiv</pattern>
+                <template>Ce ai dori sa stii despre modul infinitiv?
+                    <button>
+				        <text>Definitie</text>
+					    <postback>DefModInfinitiv</postback>
+			    	</button>
+			    	
+			    	<button>
+				        <text>Exemple</text>
+					    <postback>ExModInfinitiv</postback>
+			    	</button>
+			    	
+                </template>
+            </category>
+        
+            <category>
+                <pattern>DefModInfinitiv</pattern>
+                <template>Modul infinitivul are o marcă proprie (prepoziția „a”) în forma lui scurtă. Acesta are și o formă lungă, fiind aplicabil la timpurile prezent și perfect.
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <category>
+                <pattern>ExModInfinitiv</pattern>
+                <template>Exemple: <br></br>
+                          A scrie. (infinitiv prezent)<br></br>
+                          A fi scris. (infinitiv perfect)
+                    
+                    <button>
+                        <text>Doresc mai multe exemple</text>
+                        <url>https://verbavolant.ro/modurile-si-timpurile-verbelor-in-romana-partea-2#modul-infinitiv</url>
+                    </button>                
+                                   
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+         <!-- Modul Participiu-->
+            <category>
+                <pattern>ModParticipiu</pattern>
+                <template>Ce ai dori sa stii despre modul participiu?
+                    <button>
+				        <text>Definitie</text>
+					    <postback>DefModParticipiu</postback>
+			    	</button>
+			    	
+			    	<button>
+				        <text>Exemple</text>
+					    <postback>ExModParticipiu</postback>
+			    	</button>
+			    	
+                </template>
+            </category>
+        
+            <category>
+                <pattern>DefModParticipiu</pattern>
+                <template>Modul participiu constituie forma caracteristică formării modurilor și timpurilor compuse la diateza activă, pasivă și reflexivă. Acesta indică rezultatul acțiunii denumite de verb. O trăsătură specifică a verbelor la participiu este faptul că se termină în „t” sau „s”.
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <category>
+                <pattern>ExModParticipiu</pattern>
+                <template>Exemple: <br></br>
+                            Onoratul merită laudele primite.<br></br>
+                            Un rătăcit a fost găsit pe stradă.
+                                   
+                    <button>
+                        <text>Doresc mai multe exemple</text>
+                        <url>https://verbavolant.ro/modurile-si-timpurile-verbelor-in-romana-partea-2#modul-participiu</url>
+                    </button>                  
+                                    
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <!-- Modul Gerunziu -->
+            <category>
+                <pattern>ModGerunziu</pattern>
+                <template>Ce ai dori sa stii despre modul gerunziu?
+                    <button>
+				        <text>Definitie</text>
+					    <postback>DefModGerunziu</postback>
+			    	</button>
+			    	
+			    	<button>
+				        <text>Exemple</text>
+					    <postback>ExModGerunziu</postback>
+			    	</button>
+			    	
+                </template>
+            </category>
+        
+            <category>
+                <pattern>DefModGerunziu</pattern>
+                <template>Modul gerunziu arată contextul în care se petrece acțiunea indicată de verb. Acest mod verbal se construiește adăugând sufixele „ând” sau „ind” rădăcinii verbului.
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <category>
+                <pattern>ExModGerunziu</pattern>
+                <template>Exemple: vorbind, tăcând
+                
+                    <button>
+                        <text>Doresc mai multe exemple</text>
+                        <url>https://verbavolant.ro/modurile-si-timpurile-verbelor-in-romana-partea-2#modul-gerunziu</url>
+                    </button>                  
+                               
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <!-- Modul Supin -->
+            <category>
+                <pattern>ModSupin</pattern>
+                <template>Ce ai dori sa stii despre modul supin?
+                    <button>
+				        <text>Definitie</text>
+					    <postback>DefModSupin</postback>
+			    	</button>
+			    	
+			    	<button>
+				        <text>Exemple</text>
+					    <postback>ExModSupin</postback>
+			    	</button>
+			    	
+                </template>
+            </category>
+        
+            <category>
+                <pattern>DefModSupin</pattern>
+                <template>Modul supin arată scopul acțiunii denumite de verb, precum și destinația și originea unui obiect. Supinul se construiește pornind de la participiul verbului și adăugând acestuia o prepoziție simplă sau compusă.
+                
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+            <category>
+                <pattern>ExModSupin</pattern>
+                <template>Exemple: <br></br>
+                            Microfonul este pentru cântat. (scopul acțiunii)<br></br>
+                            Am cumpărat niște cărți de citit. (destinația obiectului)<br></br>
+                            Bătăturile sunt de la săpat. (proveniența)
+                                    
+                    <button>
+                        <text>Doresc mai multe exemple</text>
+                        <url>https://verbavolant.ro/modurile-si-timpurile-verbelor-in-romana-partea-2#modul-supin</url>
+                    </button>    
+                    
+                    <button>
+				        <text>Doresc sa invat altceva</text>
+					    <postback>bine</postback>
+			    	</button>
+                
+                </template>
+            </category>
+            
+        <category>
+				<pattern>bine</pattern>
+				<template>
+					Apasa pe butonul "Doresc sa invat altceva" pentru a studia ceea ce iti doresti.
+				<button>
+				<text>Doresc sa invat altceva</text>
+					<postback>bine</postback>
+				</button>
+				   
+				</template>
+		</category>
+		
+
+
+</aiml>
